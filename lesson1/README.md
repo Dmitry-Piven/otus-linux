@@ -11,4 +11,4 @@
 Полученный в ходе выполнения ДЗ Vagrantfile должен быть залит в ваш git-репозиторий.
 
 Результаты:
-Образ загружен в Vagrant Cloud:
+Образ загружен в Vagrant Cloud:https://app.vagrantup.com/dpiven/boxes/centos-7-5
