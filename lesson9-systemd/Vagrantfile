@@ -1,0 +1,27 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  config.vm.box = "bento/centos-stream-8"
+  config.vm.box_version = "202112.23.0"
+#  config.vm.box = "centos/8"
+#  config.vm.box_version = "2004.01"
+
+#  config.vm.provision "ansible" do |ansible|
+#    ansible.verbose = "vvv"
+#    ansible.playbook = "playbook.yml"
+#    ansible.become = "true"
+#  end
+
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 256
+    v.cpus = 1
+  end
+
+  config.vm.define "homesrv" do |homesrv|
+    homesrv.vm.network "private_network", ip: "192.168.50.10", virtualbox__intnet: "net1"
+    homesrv.vm.hostname = "homesrv"
+    homesrv.vm.provision "shell", path: "homesrv.sh"
+  end
+
+end
